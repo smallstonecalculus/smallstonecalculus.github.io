@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Problem Generator</title>
+        <style>
+            #fuji-apples {
+                margin-top: -25px;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .rainbow {
+                font-family: "Comic Sans MS", cursive, sans-serif;
+            }
+            .error {
+                color: white;
+                background-color: black;
+                font-family:"Courier New", Courier, monospace;
+                padding: 2px;
+                padding-left: 20px;
+            }
+            .gray {
+                color: LightGray;
+            }
+            .blink {
+                -webkit-animation: blink 1s linear infinite;
+                -moz-animation: blink 1s linear infinite;
+                -ms-animation: blink 1s linear infinite;
+                -o-animation: blink 1s linear infinite;
+                 animation: blink 1s linear infinite;
+            }
+            @-webkit-keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 1; }
+                50.01% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @-moz-keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 1; }
+                50.01% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @-ms-keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 1; }
+                50.01% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @-o-keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 1; }
+                50.01% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 1; }
+                50.01% { opacity: 0; }
+                100% { opacity: 0; }
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.ttf')  format('truetype');
+              font-weight: 100;
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.ttf')  format('truetype');
+              font-weight: 100;
+              font-style: oblique;
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.ttf')  format('truetype');
+              font-weight: 300;
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.ttf')  format('truetype');
+              font-weight: 300;
+              font-style: oblique;
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.ttf')  format('truetype');
+              font-weight: 700;
+            }
+            @font-face {
+              font-family: 'Comic Sans MS';
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.ttf')  format('truetype');
+              font-weight: 700;
+              font-style: oblique;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light.ttf')  format('truetype');
+              font-weight: 100;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Light-Oblique.ttf')  format('truetype');
+              font-weight: 100;
+              font-style: oblique;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular.ttf')  format('truetype');
+              font-weight: 300;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Regular-Oblique.ttf')  format('truetype');
+              font-weight: 300;
+              font-style: oblique;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold.ttf')  format('truetype');
+              font-weight: 700;
+            }
+            @font-face {
+              font-family: cursive;
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.eot');
+              src: url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.eot?#iefix') format('embedded-opentype'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.woff') format('woff'),
+                   url('http://cdn.jsdelivr.net/comic-sans-replacer/latest/fonts/ComicNeue-Bold-Oblique.ttf')  format('truetype');
+              font-weight: 700;
+              font-style: oblique;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="rainbow"><h1><span style="color:#ff0000;">P</span><span style="color:#ff2000;">R</span><span style="color:#ff4000;">O</span><span style="color:#ff5f00;">B</span><span style="color:#ff7f00;">L</span><span style="color:#ff9f00;">E</span><span style="color:#ffbf00;">M</span><span style="color:#ffdf00;"> </span><span style="color:#ffff00;">G</span><span style="color:#bfff00;">E</span><span style="color:#80ff00;">N</span><span style="color:#40ff00;">E</span><span style="color:#00ff00;">R</span><span style="color:#00ff55;">A</span><span style="color:#00ffaa;">T</span><span style="color:#00ffff;">O</span><span style="color:#00bfff;">R</span><span style="color:#0080ff;"> </span><span style="color:#0040ff;"></h1></div>
+
+        <p id="fuji-apples">Made by Jesse Li and you'd better believe it.</p>
+
+        <p><strong>Hiya so this is the calculus problem generator.</strong></p>
+        <p>Looks like you haven't added any parameters to the url or you messed something up <strong>AND WILL NEVER FINISH YOUR PROJECT! PANIC!</strong></p>
+        <p>Make a <em>GET</em> request like <a href="/?type=addition&amp;range=10">this</a> and it'll spit out a json!
+        <p><strong>If you're here because of an error, here it is:</strong></p>
+
+        <div class = "error">
+            <p>{{ exception }}</p>
+            <p>{{ exception2 }}</p>
+            <p class = "gray"><strong>$ just kidding you can't type here<span class="blink">&#9608;</span></strong></p>
+        </div>
+
+        <p><em>Currently supported features:</em></p>
+        <ul>
+            <li><a href="/?type=arithmetic&amp;range=10">arithmetic</a> - take a <em>range</em> parameter. Defaults to 100</li>
+            <ul>
+                <li><a href="/?type=addition&amp;range=10">addition</a></li>
+                <li><a href="/?type=subtraction&amp;range=10">subtraction</a></li>
+                <li><a href="/?type=multiplication&amp;range=10">multiplication</a></li>
+                <li><a href="/?type=division&amp;range=10">division</a></li>         
+            </ul>
+            <li><a href="/?type=wordProblem">word problems<a></li>
+            <li>calculus</li>
+            <ul>
+                <li><a href="/?type=differentiation&amp;degree=3">differentiation</a> - take a <em>degree</em> parameter. Defaults to 5</li>
+                <li><a href="/?type=physics">physics</a></li>
+                <li><a href="/?type=volume&amp;min=2&amp;max=5">volume</a> - take <em>max</em> and <em>min</em> paramaters. Default to 1 and 3</li>
+                <li><a href="/?type=relatedRates">related rates</a></li>
+                <li><a href="/?type=riemann">Riemann sums/Definite integrals</a></li>
+                <li><a href="/?type=optimization">Optimization</a></li>
+            </ul>
+        </ul>
+    </body>
+</html>

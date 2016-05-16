@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato|Open+Sans:400,600,400italic,600italic,700italic,300italic,300' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <style>
+        #foot{
+            float: left;
+            color: white;
+            position: absolute;
+            padding-left: 4px;
+            bottom: 0;
+        }
+
+        #foot a{
+            color: inherit;
+        }
+    </style>
+
+    <script>
+        //loads page before the request is done 
+        // console.log(loggedIn);
+    </script>
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+    <script src='http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src="js/index.js"></script>
+
+    <div class="header">
+        <ul class="list nav">
+            <li><a href="/"><span class="title">Small Stone</a></li>
+
+
+
+
+            <a href='/generate'>
+                <li><span class='element' id='generate'>Generate</span></li>
+            </a>
+
+
+
+            <a href="/about">
+                <li><span class="element" id="about">About</span></li>
+            </a>
+
+            <script>
+                $.ajax({
+                    type: "post",
+                    url: "php/verify.php"
+                }).done(function(data) {
+                    //console.log(loggedIn);
+                    if (data == 1) {
+                        $("ul").append("<a href='/profile'><li><span class='element' id = 'generate'>Profile</span></li></a>");
+                        console.log("HELPME");
+                    } else {
+                        $("ul").append("<a href='/login'><li><span class = 'element' id = 'login'>Login</span></li></a>");
+                    }
+                });
+            </script>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>Small Stone</h1>
+        <h2>An AP Calculus AB Free Response Problem Generator</h2>
+    </div>
+
+    <div class="getStarted nav">
+        <a href="/generate"><h3>Get Started</h3></a>
+    </div>
+
+    <!-- <script>
+        $("#generate").click(function(){
+            window.location.href = "generate.html";
+        });
+    </script> -->
+    <div id = "foot">
+        <p>Version 1.0</p>
+ <p>Built on the <a href="http://calculus-generator.appspot.com">totally rad problem generator</a></p>
+    </div>
+    <div id="footer">
+       
+        
+    </div>
+</body>
+
+</html>

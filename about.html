@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+	<style>
+		#aboutTitle{
+			text-align: center;
+			font-weight: normal;
+			text-shadow: 1px 1px 5px black;
+		}
+
+		#contentBox{
+			width: 1000px;
+			background-color: rgb(109, 83, 128);
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: -100px;
+			box-shadow: 1px 6px 60px #1a1a1a;
+			padding: 20px;
+		}
+
+		p{
+			color: #EEEEEE;
+			font-size: 20px;
+			line-height: 1.6;
+		}
+
+		a{
+			color: #CCCCCC;
+		}
+
+		#ps{
+			color: #BBBBBB;
+			font-size: 16px;
+			text-align: center;
+		}
+
+		#about{
+			color: grey;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="particles-js"></div>
+    <script src='http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script>
+    <script src="js/index.js"></script>
+
+    <div class="header">
+        <ul class="list nav">
+            <li><a href="/"><span class="title">Small Stone</a></li>
+
+
+
+
+            <a href='/generate'>
+                <li><span class='element' id='generate'>Generate</span></li>
+            </a>
+
+
+
+            <a href="/about">
+                <li><span class="element" id="about">About</span></li>
+            </a>
+
+            <script>
+                $.ajax({
+                    type: "post",
+                    url: "php/verify.php"
+                }).done(function(data) {
+                    if (data == 1) {
+                        $("ul").append("<a href='/profile'><li><span class='element' id = 'profile'>Profile</span></li></a>");
+                    } else {
+                        $("ul").append("<a href='/login'><li><span class = 'element' id = 'login'>Login</span></li></a>");
+                    }
+                });
+            </script>
+        </ul>
+    </div>
+
+    <h1 id = "aboutTitle">About Us</h1>
+    <div id = "contentBox">
+    	<p><em>Heya!</em> This calculus problem generator was made by James Skripchuk and Jesse Li. We're both students at <a href= "http://charterschool.org/">The Charter School of Wilmington</a>, and we made this website as our final project for AP Calculus AB. James took care of most of the web-development challenges (because this is also his Web-Dev final), while Jesse solved most of the problem generation tasks by making a <a href = "http://calculus-generator.appspot.com/">super rad problem generator API</a>. Hopefully this website will provide some extra practice for AP students next year. <em>See-ya!</em></p>
+    	<p id = "ps"><em>Special thanks goes to Mr. Satalino and Mr. Kramer for being such wonderful human beings. <br><strong>Looseleaf!</strong></em></p>
+    </div>
+</body>
+
+</html>
