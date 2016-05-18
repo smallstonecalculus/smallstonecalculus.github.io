@@ -244,11 +244,7 @@
 <script type="text/x-mathjax-config">
     MathJax.Ajax.config.path["Contrib"] = "//cdn.mathjax.org/mathjax/contrib";
 </script>
-<?php
 
-    session_start();
-    $_SESSION['currentProb'] = 0;
-?>
 <body>
     <div id="whiteBackground"></div>
 
@@ -295,9 +291,7 @@
                         var problemParams = ["physics", "volume&min=2&max=5", "relatedRates", "optimization", "riemann"];
                         var problemTypes = ["Physics", "Area and Volume", "Related Rates", "Optimization", "Riemann Sums"];
 
-                        //var randSelect = Math.floor(Math.random() * problemParams.length);
-                        var randSelect =<?php echo $_SESSION['currentProb']?>;
-                        <?php $_SESSION['currentProb'] = ($_SESSION['currentProb'] + 1)%5) ?>
+                        var randSelect = Math.floor(Math.random() * problemParams.length);
                         var probLink = problemParams[randSelect];
                         var probType = problemTypes[randSelect];
                         //probLink = problemParams[4];
